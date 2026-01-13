@@ -16,10 +16,10 @@
     "clientsettings": {
         "nodes": [
             {
-                "host": "lavalink.oops.wtf",
-                "port": 443,
-                "password": "www.oops.wtf",
-                "secure": true
+                "host": "lavalink.paniek.de",
+                "port": 2333,
+                "password": "youshallnotpass",
+                "secure": false
             }
         ]
     },
