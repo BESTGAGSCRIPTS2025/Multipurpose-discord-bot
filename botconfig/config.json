@@ -16,9 +16,10 @@
     "clientsettings": {
         "nodes": [
             {
-                "host": "localhost",
-                "port": 2333,
-                "password": "youshallnotpass"
+                "host": "lavalink.oops.wtf",
+                "port": 443,
+                "password": "www.oops.wtf",
+                "secure": true
             }
         ]
     },
