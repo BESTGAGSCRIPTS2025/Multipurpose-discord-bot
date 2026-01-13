@@ -36,7 +36,7 @@ module.exports = {
 
             //ensure the economy data
             ensure_economy_user(client, message.guild.id, user.id);
-            var users = client.economy.keyArray().filter(i => String(i).startsWith(message.guild.id));
+            var users = [...client.economy.keys()].filter(i => String(i).startsWith(message.guild.id));
             var datas = [];
             for (const user of users)
                 try {

@@ -24,6 +24,7 @@ module.exports = async client => {
     client.Jobmute = new CronJob(
         "*/5 * * * * *",
         async function () {
+            if (!client.mutes || !client.afkDB) return;
             client.mutes.ensure("MUTES", {
                 MUTES: [],
             });
@@ -85,6 +86,7 @@ module.exports = async client => {
     client.Jobremind = new CronJob(
         "*/5 * * * * *",
         async function () {
+            if (!client.afkDB) return;
             let data = client.afkDB.get("REMIND");
             if (!data) {
                 client.afkDB.ensure("REMIND", {

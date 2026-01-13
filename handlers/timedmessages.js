@@ -12,7 +12,7 @@ module.exports = client => {
             var currentHour = new Date().getHours();
             var Days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
             var currentDay = Days[new Date().getDay()];
-            var guilds = client.settings
+            var guilds = [...client.settings
                 .filter(
                     v =>
                         v.timedmessages &&
@@ -24,7 +24,7 @@ module.exports = client => {
                                 Number(msg.hour) == Number(currentHour)
                         ).length > 0
                 )
-                .keyArray();
+                .keys()];
             //Loop through all guilds and send a random auto-generated-nsfw setup
             for (const guildid of guilds) {
                 timedmessage(guildid);

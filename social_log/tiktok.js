@@ -9,8 +9,8 @@ module.exports = client => {
         "0 */7 * * * *",
         async function () {
             await delay(2 * 60 * 1000);
-            var guilds = client.social_log
-                .keyArray(
+            var guilds = [...client.social_log
+                .filter(
                     v =>
                         v.tiktok &&
                         v.tiktok.channels &&
@@ -19,6 +19,7 @@ module.exports = client => {
                         v.tiktok.dc_channel &&
                         v.tiktok.dc_channel.length > 1
                 )
+                .values()]
                 .map(v => v.tiktok);
             if (!guilds) return;
             for (const g of guilds) {

@@ -6,7 +6,7 @@ module.exports = function (client, options) {
         "0 0 * * * *",
         async function () {
             //get all guilds which are setupped
-            var guilds = client.setups
+            var guilds = [...client.setups
                 .filter(v => {
                     if (v.membercount) {
                         let returnvalue = false;
@@ -17,7 +17,7 @@ module.exports = function (client, options) {
                     }
                     return false;
                 })
-                .keyArray();
+                .keys()];
             var logguilds = guilds;
             console.log(JSON.stringify(logguilds.map(guild => `${guild}`)).italic.yellow + " MEMBERCOUNTER ALL GUILDS");
             //Loop through all guilds and send a random auto-generated-nsfw setup
@@ -33,7 +33,7 @@ module.exports = function (client, options) {
 
     client.on("ready", async () => {
         //get all guilds which are setupped
-        var guilds = client.setups
+        var guilds = [...client.setups
             .filter(v => {
                 if (v.membercount) {
                     let returnvalue = false;
@@ -44,7 +44,7 @@ module.exports = function (client, options) {
                 }
                 return false;
             })
-            .keyArray();
+            .keys()];
         var logguilds = guilds;
         console.log(JSON.stringify(logguilds.map(guild => `${guild}`)).italic.yellow + " MEMBERCOUNTER ALL GUILDS");
         //Loop through all guilds and send a random auto-generated-nsfw setup
