@@ -37,7 +37,7 @@ module.exports = async client => {
     client.giveawayDB = new Enmap({ name: "giveaways", dataDir: "./databases" });
     const GiveawayManagerWithOwnDatabase = class extends GiveawaysManager {
         async getAllGiveaways() {
-            return client.giveawayDB.fetchEverything().array();
+            return client.giveawayDB.values();
         }
         async saveGiveaway(messageId, giveawayData) {
             client.giveawayDB.set(messageId, giveawayData);

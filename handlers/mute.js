@@ -28,6 +28,7 @@ module.exports = async client => {
                 MUTES: [],
             });
             let data = client.mutes.get("MUTES");
+            if (!data || !data.MUTES) return;
             var unmutes = data.MUTES.filter(v => {
                 return v.mutetime > 0 && v.mutetime - (Date.now() - v.timestamp) <= 0;
             });

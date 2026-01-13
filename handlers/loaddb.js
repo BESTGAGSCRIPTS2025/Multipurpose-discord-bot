@@ -156,7 +156,7 @@ module.exports = async client => {
         dataDir: "./databases/blacklist",
     });
     client.customcommands = new Enmap({
-        name: "custom commands",
+        name: "custom_commands",
         dataDir: "./databases/customcommands",
     });
     client.keyword = new Enmap({

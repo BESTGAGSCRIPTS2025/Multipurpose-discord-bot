@@ -104,10 +104,10 @@ module.exports = client => {
                                                     .setDescription(option.StringChoices.description)
                                                     .setRequired(option.StringChoices.required)
                                                     .addChoices(
-                                                        option.StringChoices.choices.map(c => [
-                                                            String(c[0]).replace(/\s+/g, "_").toLowerCase(),
-                                                            String(c[1]),
-                                                        ])
+                                                        ...option.StringChoices.choices.map(c => ({
+                                                            name: String(c[0]).replace(/\s+/g, "_").toLowerCase(),
+                                                            value: String(c[1]),
+                                                        }))
                                                     )
                                             );
                                         } else if (
@@ -125,10 +125,10 @@ module.exports = client => {
                                                     .setDescription(option.IntChoices.description)
                                                     .setRequired(option.IntChoices.required)
                                                     .addChoices(
-                                                        option.IntChoices.choices.map(c => [
-                                                            String(c[0]).replace(/\s+/g, "_").toLowerCase(),
-                                                            parseInt(c[1]),
-                                                        ])
+                                                        ...option.IntChoices.choices.map(c => ({
+                                                            name: String(c[0]).replace(/\s+/g, "_").toLowerCase(),
+                                                            value: parseInt(c[1]),
+                                                        }))
                                                     )
                                             );
                                         } else {
@@ -210,10 +210,10 @@ module.exports = client => {
                                         .setDescription(option.StringChoices.description)
                                         .setRequired(option.StringChoices.required)
                                         .addChoices(
-                                            option.StringChoices.choices.map(c => [
-                                                String(c[0]).replace(/\s+/g, "_").toLowerCase(),
-                                                String(c[1]),
-                                            ])
+                                            ...option.StringChoices.choices.map(c => ({
+                                                name: String(c[0]).replace(/\s+/g, "_").toLowerCase(),
+                                                value: String(c[1]),
+                                            }))
                                         )
                                 );
                             } else if (
@@ -229,10 +229,10 @@ module.exports = client => {
                                         .setDescription(option.IntChoices.description)
                                         .setRequired(option.IntChoices.required)
                                         .addChoices(
-                                            option.IntChoices.choices.map(c => [
-                                                String(c[0]).replace(/\s+/g, "_").toLowerCase(),
-                                                parseInt(c[1]),
-                                            ])
+                                            ...option.IntChoices.choices.map(c => ({
+                                                name: String(c[0]).replace(/\s+/g, "_").toLowerCase(),
+                                                value: parseInt(c[1]),
+                                            }))
                                         )
                                 );
                             } else {

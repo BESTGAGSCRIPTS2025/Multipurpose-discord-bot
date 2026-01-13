@@ -4,6 +4,7 @@ expertMode = true
 
 [nix]
 channel = "stable-25_05"
+packages = ["libuuid", "fontconfig", "cairo", "pango", "libjpeg_turbo", "giflib", "pixman"]
 
 [workflows]
 runButton = "Project"

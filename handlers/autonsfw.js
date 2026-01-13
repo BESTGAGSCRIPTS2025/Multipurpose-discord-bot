@@ -11,7 +11,7 @@ module.exports = client => {
         "0 * * * * *",
         function () {
             //get all guilds which are setupped
-            var guilds = client.settings.filter(v => v.autonsfw && v.autonsfw != "no").keyArray();
+            var guilds = [...client.settings.filter(v => v.autonsfw && v.autonsfw != "no").keys()];
             //Loop through all guilds and send a random auto-generated-nsfw setup
             for (const guildid of guilds) {
                 autonsfw(guildid);

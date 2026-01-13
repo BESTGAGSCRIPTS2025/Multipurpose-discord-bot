@@ -2003,10 +2003,12 @@ module.exports = function (client) {
             console.log("ranking: " + e);
         }
     });
-    client.points.ensure("Voicerank", {
-        voicerank: {},
-    });
-    let voiceStates = client.points.get("Voicerank", "voicerank");
+    if (client.points) {
+        client.points.ensure("Voicerank", {
+            voicerank: {},
+        });
+    }
+    let voiceStates = client.points ? client.points.get("Voicerank", "voicerank") : {};
 
     client.on("ready", () => {
         setTimeout(() => {
@@ -2023,7 +2025,9 @@ module.exports = function (client) {
                         });
                 }
             });
-            client.points.set("Voicerank", voiceStates, "voicerank");
+            if (client.points) {
+                client.points.set("Voicerank", voiceStates, "voicerank");
+            }
         }, 1500);
     });
 
@@ -2033,8 +2037,10 @@ module.exports = function (client) {
         if (!oldState.channel) {
             // The user has joined a voice channel
             voiceStates[id] = new Date();
-            voiceStates = client.points.set("Voicerank", voiceStates, "voicerank");
-            voiceStates = client.points.get("Voicerank", "voicerank");
+            if (client.points) {
+                voiceStates = client.points.set("Voicerank", voiceStates, "voicerank");
+                voiceStates = client.points.get("Voicerank", "voicerank");
+            }
         }
         // The User has left a voice Channel
         else if (!newState.channel) {
