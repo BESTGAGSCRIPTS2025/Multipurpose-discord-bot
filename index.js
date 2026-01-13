@@ -74,7 +74,7 @@ const client = new Discord.Client({
  * @param {4} Create_the_client.memer property from Tomato's Api
  *********************************************************/
 const Meme = require("memer-api");
-client.memer = new Meme(process.env.memer_api || config.memer_api); // GET a TOKEN HERE: https://discord.gg/Mc2FudJkgP
+client.memer = new Meme(config.memer_api); // GET a TOKEN HERE: https://discord.gg/Mc2FudJkgP
 
 /**********************************************************
  * @param {5} create_the_languages_objects to select via CODE
@@ -176,7 +176,7 @@ requirehandlers();
 /**********************************************************
  * @param {9} Login_to_the_Bot
  *********************************************************/
-client.login(process.env.token || config.token);
+client.login(config.token);
 
 /**********************************************************
  * @INFO
